@@ -1,11 +1,11 @@
 package com.vicchern.innovationapp.controller;
 
 import com.vicchern.innovationapp.entity.User;
+import com.vicchern.innovationapp.exception.UserServiceException;
 import com.vicchern.innovationapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +21,14 @@ public class UserController {
     }
 
     @GetMapping(path = "/list")
-    public List<User> getAllUsers(){
+    @ResponseStatus(HttpStatus.OK)
+    public List<User> getAllUsers() throws UserServiceException {
         return userService.getAllUsers();
+    }
+
+    @GetMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Object getUser(@PathVariable String id) throws UserServiceException {
+        return  userService.getUser(Long.parseLong(id));
     }
 }
