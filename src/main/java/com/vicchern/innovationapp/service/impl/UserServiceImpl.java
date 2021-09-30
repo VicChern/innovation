@@ -1,6 +1,6 @@
 package com.vicchern.innovationapp.service.impl;
 
-import com.vicchern.innovationapp.entity.User;
+import com.vicchern.innovationapp.entity.impl.User;
 import com.vicchern.innovationapp.exception.UserServiceException;
 import com.vicchern.innovationapp.repository.UserRepository;
 import com.vicchern.innovationapp.service.UserService;

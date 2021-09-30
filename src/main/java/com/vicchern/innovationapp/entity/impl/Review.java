@@ -1,4 +1,6 @@
-package com.vicchern.innovationapp.entity;
+package com.vicchern.innovationapp.entity.impl;
+
+import com.vicchern.innovationapp.entity.IReview;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "review")
-public class Review {
+public class Review implements IReview {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

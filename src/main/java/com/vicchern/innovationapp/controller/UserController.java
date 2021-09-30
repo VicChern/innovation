@@ -1,6 +1,6 @@
 package com.vicchern.innovationapp.controller;
 
-import com.vicchern.innovationapp.entity.User;
+import com.vicchern.innovationapp.entity.impl.User;
 import com.vicchern.innovationapp.exception.UserServiceException;
 import com.vicchern.innovationapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

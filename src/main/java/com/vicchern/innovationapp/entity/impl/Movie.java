@@ -1,4 +1,6 @@
-package com.vicchern.innovationapp.entity;
+package com.vicchern.innovationapp.entity.impl;
+
+import com.vicchern.innovationapp.entity.IMovie;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,7 +8,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "movie")
-public class Movie {
+public class Movie implements IMovie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,9 +1,11 @@
 package com.vicchern.innovationapp.dto;
 
 import com.sun.istack.NotNull;
+import com.vicchern.innovationapp.entity.IUser;
+
 import javax.validation.constraints.Size;
 
-public class UserDTO {
+public class UserDTO implements IUser {
     private Long id;
 
     @NotNull
