@@ -1,10 +1,12 @@
-package com.vicchern.innovationapp.entity;
+package com.vicchern.innovationapp.entity.impl;
+
+import com.vicchern.innovationapp.entity.IActor;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "actor")
-public class Actor {
+public class Actor implements IActor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
