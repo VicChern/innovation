@@ -4,11 +4,30 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vicchern.innovationapp.entity.IUser;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Table(name = "user")
-public class User implements IUser {
+public class User implements IUser, Serializable {
+
+    public User() {
+    }
+
+    public User(Long id, String firstName, String lastName, String userName, String password, Date dateOfBirth, String city, String country, int userRole, int reviewId, String email) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.dateOfBirth = dateOfBirth;
+        this.city = city;
+        this.country = country;
+        this.userRole = userRole;
+        this.reviewId = reviewId;
+        this.email = email;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +48,7 @@ public class User implements IUser {
     private String password;
 
     @Column(name = "date_of_birth")
-    private String dateOfBirth;
+    private Date dateOfBirth;
 
     @Column(name = "city")
     private String city;
@@ -86,11 +105,11 @@ public class User implements IUser {
         this.password = password;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -124,6 +143,15 @@ public class User implements IUser {
 
     public void setReviewId(int reviewId) {
         this.reviewId = reviewId;
+    }
+
+    @Override
+    public String getUserEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
